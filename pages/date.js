@@ -1,7 +1,15 @@
 import Head from 'next/head'
+import { useEffect, useState } from 'react'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
+  const [date, setDate] = useState("");
+
+  useEffect(() => {
+    const dateNow = new Date().toLocaleDateString();
+    setDate(dateNow);
+  }, []);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -12,7 +20,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Hello IZagro
+          {date}
         </h1>
       </main>
       
